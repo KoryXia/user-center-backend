@@ -26,4 +26,11 @@ class UserServiceTest {
         System.out.println(res);
         assertTrue(res);
     }
+
+
+    @Test
+    public void register() {
+        long res = this.userService.register("18758579255", "examplePassword");
+        assertEquals(1, res);
+    }
 }
