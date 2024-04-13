@@ -1,19 +1,13 @@
 package top.xsd666.usercenterbackend.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
-/**
- * 
- * @TableName user
- */
+
 @TableName(value ="user")
 @Data
 public class User implements Serializable {
@@ -61,16 +55,20 @@ public class User implements Serializable {
     /**
      * Create Time
      */
+    @TableField("createTime")
     private Date createTime;
 
     /**
      * Update Time
      */
+    @TableField("updateTime")
     private Date updateTime;
 
     /**
      * Delete status
      */
+    @TableLogic
+    @TableField("isDelete")
     private Integer isDelete;
 
     @Serial
