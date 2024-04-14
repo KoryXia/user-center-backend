@@ -71,6 +71,14 @@ public class User implements Serializable {
     @TableField("isDelete")
     private Integer isDelete;
 
+    /**
+     * 0: Normal
+     * 1: Admin
+     */
+    @TableField("userRole")
+    private Integer userRole;
+
+
     @Serial
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

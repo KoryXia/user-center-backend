@@ -11,12 +11,12 @@ import org.springframework.util.DigestUtils;
 import top.xsd666.usercenterbackend.mapper.UserMapper;
 import top.xsd666.usercenterbackend.model.User;
 
+import static top.xsd666.usercenterbackend.constant.UserConstant.*;
 
 @Service
 @Slf4j
 public class UserService extends ServiceImpl<UserMapper, User> {
     public static final String SALT = "xsd";
-    public static final String USER_LOGIN_STATE= "userLoginState";
 
     public long register(String phone, String password) {
         if (StringUtils.isAnyBlank(phone, password)) {
@@ -78,7 +78,12 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         user.setIsDelete(null);
         user.setUpdateTime(null);
         request.getSession().setAttribute(USER_LOGIN_STATE, user);
-
         return user;
+    }
+
+    public void desensitize(User user) {
+        user.setPassword(null);
+        user.setIsDelete(null);
+        user.setUpdateTime(null);
     }
 }
